@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.1
+-- version 4.0.4
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 16, 2015 at 10:57 AM
--- Server version: 5.5.24-log
--- PHP Version: 5.4.3
+-- Generation Time: May 07, 2015 at 09:28 AM
+-- Server version: 5.6.12-log
+-- PHP Version: 5.4.12
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -19,31 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `restaumart`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_manager`
---
-
-CREATE TABLE IF NOT EXISTS `tbl_manager` (
-  `managerID` int(4) NOT NULL,
-  `firstname` varchar(50) NOT NULL,
-  `lastname` varchar(50) NOT NULL,
-  `restaurantname` varchar(50) NOT NULL,
-  `location` varchar(50) NOT NULL,
-  `username` varchar(80) NOT NULL,
-  `address` varchar(100) NOT NULL,
-  `email` varchar(80) NOT NULL,
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_manager`
---
-
-INSERT INTO `tbl_manager` (`managerID`, `firstname`, `lastname`, `restaurantname`, `location`, `username`, `address`, `email`, `password`) VALUES
-(0, 'nadee', 'shanie', 'Devon', 'nugegoda', 'nadee', 'No 23,Nugegoda', 'Devon@gmail.com', '5b3de8e3242f65cd6c264702aaa6720f8a254ef8');
+CREATE DATABASE IF NOT EXISTS `restaumart` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `restaumart`;
 
 -- --------------------------------------------------------
 

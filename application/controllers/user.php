@@ -18,10 +18,10 @@ class User extends CI_Controller {
 			}
 		}
 
-		
-		$this->load->view('header');
+		$this->load->view('navbar');
+		//$this->load->view('header');
 		$this->load->view('user/login_user',$data);
-		$this->load->view('footer');
+		//$this->load->view('footer');
 		$this->load->helper('form');
 		
 	}
