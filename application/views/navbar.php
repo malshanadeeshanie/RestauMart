@@ -70,7 +70,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="wrap">
 				<div class="container">
      		 <div class="top-header">
-				<button type="button" class="btn btn-success pull-right">Log in</button>
+     		 	
+
+				
+				<?php if($this->session->userdata('userID')){ ?>
+
+				<p><a type="button" class="btn btn-success pull-right" href="<?=base_url()?>user/logout">Logout</a></p>
+				<?php } else { ?>
+				<!--button type="button" class="btn btn-success pull-right">Log in</button-->
+				<p><a type="button" class="btn btn-success pull-right" href="<?=base_url()?>user/login">Login</a></p>
+				<p><a type="button" class="btn btn-success pull-right" href="<?=base_url()?>user/register">Register</a></p>
+				<?php } ?>
+
      		 	<div class="clear"> </div>
      		 	<div class="main-header">
      		 		<div class="logo">
