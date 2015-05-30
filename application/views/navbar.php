@@ -11,6 +11,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<meta charset="utf-8" />
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script type="text/javascript" src="http://localhost/RestauMart/asserts/js/jquery.min.js"></script>
+     	<script type="text/javascript" src="http://localhost/RestauMart/asserts/js/bootstrap.min.js"></script>
+     	<link href="http://localhost/RestauMart/asserts/css/bootstrap.min.css" rel="stylesheet" media="screen">
+     	<link href="http://localhost/RestauMart/asserts/css/bootstrap-responsive.min.css" rel="stylesheet">
 
 			<!-- BOOTSTRAP STYLES-->
 		<link href="http://localhost/RestauMart/asserts/css/bootstrap.css" rel="stylesheet" />
@@ -47,7 +51,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				});
 			});
 		</script>
-	</head>
+		  
+  	</head>
 	
 	<body>
 		<!---start-wrap---->
@@ -89,12 +94,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
      		 		</div>
      		 		<div class="top-nav">
      		 			<ul>
-     		 				<li class="active"><a href="home.php">Home</a></li>
-     		 				<li><a href="about.php">About us</a></li>
-     		 				<li><a href="tips.php">Cooking tips</a></li>
-     		 				<li><a href="services.php">Services</a></li>
-     		 				<li><a href="gallery.php">Gallery</a></li>
-     		 				<li><a href="contact.php">Contact</a></li>
+     		 				<li><a href="<?=base_url()?>main/Nav_home">Home</a></li>
+     		 				<li><a href="<?=base_url()?>main/Nav_about">About us</a></li>
+     		 				<li><a href="<?=base_url()?>main/Nav_tips">Cooking tips</a></li>
+     		 				<li><a href="<?=base_url()?>main/Nav_service">Services</a></li>
+     		 				<li><a href="<?=base_url()?>main/Nav_gallery">Gallery</a></li>
+     		 				<li><a href="<?=base_url()?>main/Nav_contact">Contact</a></li>
      		 				<div class="clear"> </div>
      		 			</ul>
      		 		</div>

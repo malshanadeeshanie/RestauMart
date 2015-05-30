@@ -18,7 +18,7 @@ class Manager extends CI_Controller {
 			}
 		}
 
-		
+		$this->load->view('navbar');
 		$this->load->view('header');
 		$this->load->view('user/login_user',$data);
 		$this->load->view('footer');
@@ -106,8 +106,9 @@ class Manager extends CI_Controller {
 			redirect(base_url().'main');
 			}
 		}
+		$this->load->view('navbar');
 		$this->load->helper('form');
-		$this->load->view('header');
+		//$this->load->view('header');
 		$this->load->view('user/register_manager');
 		$this->load->view('footer');
 		

@@ -135,7 +135,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<a href="#top" class="scroll"> </a>
 						<div class="clear"> </div>
 					</div>
-					<p>Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+					<p>Restaurent Management System &#169; 2015 | All Rights Reserved </p>
 			</div>
 		</div>
 	</body>

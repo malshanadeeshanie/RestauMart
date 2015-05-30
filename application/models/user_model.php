@@ -11,7 +11,7 @@ class User_model extends CI_Model {
     {
         $where=array(
             'username'=>$username,
-            'password'=>$password
+            'password'=>md5($password)
         );
         $this->db->select()->from('tbl_user')->where($where);
         $query = $this->db->get();

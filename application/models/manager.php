@@ -1,27 +1,27 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class User extends CI_Controller {
+class Manager extends CI_Controller {
 
 
 	function login(){
 		$data['error']=0;
 		if($_POST){
-			$this->load->model('user_model');
+			$this->load->model('manager_model');
 			$username=$this->input->post('username',true);
 			$password=$this->input->post('password',true);
-			$user=$this->user_model->login($username,$password);
+			$user=$this->manager_model->login($username,$password);
 			if(!$user){
 				$data['error']=1;
 			} else{
-				$this->session->set_userdata('userID',$user['userID']);
+				$this->session->set_userdata('managerID',$user['managerID']);
 				redirect(base_url().'main');
 			}
 		}
 
-		$this->load->view('navbar');
-		//$this->load->view('header');
+		
+		$this->load->view('header');
 		$this->load->view('user/login_user',$data);
-		//$this->load->view('footer');
+		$this->load->view('footer');
 		$this->load->helper('form');
 		
 	}
@@ -37,12 +37,22 @@ class User extends CI_Controller {
 			$config=array(
 				array(
 						'field'=>'firstname',
-						'label'=>'First Name',
+						'label'=>'Firstname',
 						'rules'=>'trim|required|min_length[3]'
 					),
 				array(
 						'field'=>'lastname',
-						'label'=>'Last Name',
+						'label'=>'Lastname',
+						'rules'=>'trim|required|min_length[3]'
+					),
+					array(
+						'field'=>'restaurantname',
+						'label'=>'restaurantname',
+						'rules'=>'trim|required|min_length[3]'
+					),
+					array(
+						'field'=>'location',
+						'label'=>'location',
 						'rules'=>'trim|required|min_length[3]'
 					),
 				array(
@@ -53,11 +63,6 @@ class User extends CI_Controller {
 				array(
 						'field'=>'address',
 						'label'=>'Address',
-						'rules'=>'trim|required|min_length[3]'
-					),
-				array(
-						'field'=>'contactnumber',
-						'label'=>'Contact Number',
 						'rules'=>'trim|required|min_length[3]'
 					),
 				array(
@@ -83,37 +88,31 @@ class User extends CI_Controller {
 			$data=array(
 				'firstname'=>$_POST['firstname'],
 				'lastname'=>$_POST['lastname'],
+				'lastname'=>$_POST['lastname'],
+				'restaurantname'=>$_POST['restaurantname'],
+				'location'=>$_POST['location'],
 				'username'=>$_POST['username'],
 				'address'=>$_POST['address'],
 				'email'=>$_POST['email'],
-				'contactnumber'=>$_POST['contactnumber'],
-				'password'=>md5($_POST['password']),
+				'password'=>sha1($_POST['password']),
 
 					
 				);
 
 
-			$this->load->model('user_model');
-			$userid=$this->user_model->create_user($data);
-			$this->session->set_userdata('userID',$userid);
+			$this->load->model('manager_model');
+			$userid=$this->manager_model->create_user($data);
+			$this->session->set_userdata('managerID',$userid);
 			redirect(base_url().'main');
 			}
 		}
-		$this->load->view('navbar');
 		$this->load->helper('form');
-		//$this->load->view('header');
-		$this->load->view('user/register_user');
-		//$this->load->view('user/order');
+		$this->load->view('header');
+		$this->load->view('user/register_manager');
 		$this->load->view('footer');
 		
 
 	}
-
-	function RegRest() {
-        $this->load->view('navbar');
-        $this->load->view('user/register_restaurant');
-    }
-    
 
 
 }

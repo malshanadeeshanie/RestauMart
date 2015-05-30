@@ -41,6 +41,7 @@ body{
 .top-nav ul li{
 	display:inline-block;
 	float:left;
+	
 }
 .top-nav {
 	float: right;
@@ -57,10 +58,11 @@ body{
 	text-transform: uppercase;
 	font-size: 0.875em;
 }
-.top-nav li.active> a, .top-nav li> a:hover {
+.top-nav li.active> a, .top-nav li> a:hover{
 	color: #FFF;
 	background:#D2691E;
 }
+
 .top-search input[type="text"]{
 	float: left;
 	width: 164px;
@@ -222,6 +224,8 @@ body{
 .button:hover{
 	background: url(../images/icon1h.png) no-repeat 100% -0% #D2691E;
 }
+
+
 .mid-grid ul li{
 	display:block;
 	border-bottom: 1px dashed #C7C7C7;
@@ -408,7 +412,7 @@ body{
 	border-bottom: 1px dashed rgba(0, 0, 0, 0.06);
 }
 .about {
-	margin-top: 200px;
+	margin-top: 10px;
 }
 /*----about-histore----*/
 .about-histore{
@@ -480,7 +484,7 @@ body{
 }
 /*---cooking-tips------*/
 .ctips {
-	margin-top: 200px;
+	margin-top: 10px;
 }
 .tips-left{
 	width: 48%;
@@ -631,11 +635,11 @@ body{
 	padding: 9px 13px 8px 23px;
 }
 .services {
-	margin: 200px 0 30px 0;
+	margin: 10px 0 30px 0;
 }
 /*---start-gallery---*/
 .gallerys {
-	margin: 200px 0px 30px 0px;
+	margin: 10px 0px 30px 0px;
 }
 .gallerys h3{
 	font-family: 'Open Sans', sans-serif;
@@ -718,7 +722,7 @@ background: url(../images/icon1.png) no-repeat 100% -0% #303030;
 }
 /*  Contact Form  ============================================================================= */
 .contact{
-	margin-top:190px;
+	margin-top:10px;
 }
 .section {
 	clear: both;
