@@ -77,7 +77,7 @@
 														</div>
 														<div class="form-group">
 															<label>Contact Number</label>
-															<input type="text" name="contactnumber" required data-validation-required-message="Please enter your contact number."class="form-control" placeholder="000-0000000" />
+															<input type="text" name="contactnumber" required data-validation-required-message="Please enter your contact number."class="form-control" placeholder="0000000000" />
 														</div>
 														<!--
 														<div class="form-group">
