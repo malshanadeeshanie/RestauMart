@@ -48,7 +48,7 @@ class User extends CI_Controller {
 				array(
 						'field'=>'username',
 						'label'=>'Username',
-						'rules'=>'trim|required|min_length[3]|is_unique[tbl_user.username]'
+						'rules'=>'trim|required|min_length[3]|is_unique[tbl_pass.username]'
 					),
 				array(
 						'field'=>'address',
@@ -80,21 +80,25 @@ class User extends CI_Controller {
 				$data['errors']=validation_errors();
 			} else{
 
-			$data=array(
+			$data1=array(
 				'firstname'=>$_POST['firstname'],
 				'lastname'=>$_POST['lastname'],
-				'username'=>$_POST['username'],
+				//'username'=>$_POST['username'],
 				'address'=>$_POST['address'],
 				'email'=>$_POST['email'],
 				'contactnumber'=>$_POST['contactnumber'],
-				'password'=>md5($_POST['password']),
-
-					
+				//'password'=>md5($_POST['password']),	
 				);
 
+			$data2=array(
+				'username'=>$_POST['username'],
+				'password'=>md5($_POST['password']),
 
+				);
+
+			//$this->m_signup->create_user($data1, $data2);
 			$this->load->model('user_model');
-			$userid=$this->user_model->create_user($data);
+			$userid=$this->user_model->create_user($data1, $data2);
 			$this->session->set_userdata('userID',$userid);
 			redirect(base_url().'main');
 			}
@@ -109,10 +113,7 @@ class User extends CI_Controller {
 
 	}
 
-	function RegRest() {
-        $this->load->view('navbar');
-        $this->load->view('user/register_restaurant');
-    }
+
     
 
 

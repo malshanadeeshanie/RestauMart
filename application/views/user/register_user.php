@@ -28,7 +28,7 @@
 											<a class="active-menu"  href="<?=base_url()?>user/register"><i class="fa fa-user fa-3x"></i> Customer </a>
 										</li>																				  						 
 										<li  >
-											<a   href="<?=base_url()?>user/RegRest"><i class="fa fa-home fa-3x"></i> Reataurant</a>
+											<a   href="<?=base_url()?>manager/Man_register"><i class="fa fa-home fa-3x"></i> Reataurant</a>
 										</li>	
 									</ul>
 								   

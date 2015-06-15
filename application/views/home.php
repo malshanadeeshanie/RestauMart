@@ -14,11 +14,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<!---start-content---->
 			<div class="content">
 						<div class="top-grids">
+							
 							<div class="top-grid">
 								<h3>Welcome</h3>
 								<img src="http://localhost/RestauMart/asserts/images/slider1.jpg" title="image-name" />
-								<a href="#">Read more</a>
+								<a href="<?=base_url()?>manager/view_restaurants">Read more</a>
 							</div>
+							
 							<div class="top-grid">
 								<h3>Our history</h3>
 								<img src="http://localhost/RestauMart/asserts/images/slider2.jpg" title="image-name" />

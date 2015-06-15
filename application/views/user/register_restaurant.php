@@ -1,9 +1,10 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+<?php echo validation_errors(); ?>
+<div style="background:red;color:white;">
+
+</div>
+
+<?php echo form_open(base_url().'manager/Man_register'); ?>
+
 <!DOCTYPE HTML>
 <html>
 	
@@ -25,7 +26,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<a  href="<?=base_url()?>user/register"><i class="fa fa-user fa-3x"></i> Customer </a>
 								</li>																				  						 
 								<li  >
-									<a class="active-menu"  href="<?=base_url()?>user/RegRest"><i class="fa fa-home fa-3x"></i> Reataurant</a>
+									<a class="active-menu"  href="<?=base_url()?>manager/Man_register"><i class="fa fa-home fa-3x"></i> Reataurant</a>
 								</li>	
 							</ul>
 						   
@@ -53,33 +54,83 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-md-8">
-											<h3>Basic Information</h3>
-											<form role="form">
-												<div class="form-group">
-													<label>First Name</label>
-													<input class="form-control" />
-												</div>
-												<div class="form-group">
-													<label>Last Name</label>
-													<input class="form-control" />
-												</div>
+											<h3>Restaurant Information</h3>
+											<!--form role="form"-->
+												<?php echo form_open(base_url().'manager/Man_register'); ?>
 												<div class="form-group">
 													<label>Restaurant Name</label>
-													<input class="form-control" />
+													<input type="text" name="resname" required data-validation-required-message="Please enter the name." class="form-control" />
 												</div>
 												<div class="form-group">
 													<label>Address</label>
+													<input type="text" name="resaddress" required data-validation-required-message="Please enter the address." class="form-control" />
+												</div>
+												<!--div class="form-group">
+													<label>Contact Number</label>
 													<input class="form-control" />
+												</div-->
+												<!--div class="form-group">
+													<label>Address</label>
+													<input class="form-control" />
+												</div-->
+												<div class="form-group">
+													<label>Restaurant Email</label>
+													<input type="text" name="resemail"  required data-validation-required-message="Please enter the email." class="form-control" placeholder="abc@xyz.com" />
+												</div>
+												<div class="form-group">
+													<label>Contact Number of the Restaurent</label>
+													<input type="text" name="resnumber" required data-validation-required-message="Please enter the contact number."class="form-control" placeholder="0000000000" />
+												</div>
+												<div class="col-md-4">
+													<div class="form-group">
+														<label>Zip or Postal code</label>
+														<input name="zip" required data-validation-required-message="Please enter Zip code." class="form-control" placeholder="00000" />
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div class="form-group">
+														<label>City</label>
+														<input name="city" required data-validation-required-message="Please enter the city." class="form-control"  />
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div class="form-group">
+														<label>State or Province</label>
+														<input name="state" required data-validation-required-message="Please enter state." class="form-control"  />
+													</div>
+												</div>
+												<div class="form-group">
+													<label>Pictures</label>
+													<input type="file" />
+												</div>
+												<!--div class="form-group">
+													<label>How can we help you?</label>
+													<textarea class="form-control" rows="3"></textarea>
+												</div-->
+											<!--/form-->
+											<h3>Manager Information</h3>
+											<form role="form">
+												<div class="form-group">
+													<label>First Name </label>
+													<input type="text" name="firstname" required data-validation-required-message="Please enter your first name." class="form-control" />
+												</div>
+												<div class="form-group">
+													<label>Last Name</label>
+													<input type="text" name="lastname" required data-validation-required-message="Please enter your last name." class="form-control" />
+												</div>
+												<div class="form-group">
+													<label>Address</label>
+													<input type="text" name="address" required data-validation-required-message="Please enter your address." class="form-control" />
 												</div>
 												<div class="form-group">
 													<label>Email</label>
-													<input class="form-control" placeholder="abc@xyz.com" />
+													<input type="text" name="email" required data-validation-required-message="Please enter your email." class="form-control" placeholder="abc@xyz.com" />
 												</div>
 												<div class="form-group">
-													<label>Contact Number</label>
-													<input class="form-control" placeholder="000-0000000" />
+													<label>Contact Number </label>
+													<input type="text" name="contactnumber" required data-validation-required-message="Please enter your contact number."class="form-control" placeholder="0000000000" />
 												</div>
-												<div class="col-md-4">
+												<!--div class="col-md-4">
 													<div class="form-group">
 														<label>Zip or Postal code</label>
 														<input class="form-control" placeholder="00000" />
@@ -98,23 +149,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 													</div>
 												</div>
 												<div class="form-group">
-													<label>Profile Picture</label>
+													<label>Pictures</label>
 													<input type="file" />
 												</div>
 												<div class="form-group">
 													<label>How can we help you?</label>
 													<textarea class="form-control" rows="3"></textarea>
-												</div>
-											</form>
+												</div-->
+											<!--/form-->
 											<h3>Login Information</h3>
 											<form role="form">
 												<div class="form-group">
 													<label>Username</label>
-													<input class="form-control" placeholder="Enter Username" />
+													<input type="text" name="username"  required data-validation-required-message="Please enter your username." class="form-control" placeholder="Enter Username" />
 												</div>
 												<div class="form-group">
 													<label>Password</label>
-													<input type="password" class="form-control" placeholder="Enter Password" />
+													<input type="password" name="password" required data-validation-required-message="Please enter your password." class="form-control" placeholder="Enter Password" />
 												</div>
 												<div class="form-group">
 													<label>Confirm Password</label>
@@ -123,8 +174,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 												
 												<button type="submit" class="btn btn-success">Register Me</button>
 												<button type="reset" class="btn btn-primary">Reset Form</button>
-
-											</form>
+												<?php echo form_close(); ?>
+											<!--/form-->
 											
 
 										 

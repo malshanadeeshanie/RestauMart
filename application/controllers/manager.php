@@ -3,66 +3,80 @@
 class Manager extends CI_Controller {
 
 
-	function login(){
-		$data['error']=0;
-		if($_POST){
-			$this->load->model('manager_model');
-			$username=$this->input->post('username',true);
-			$password=$this->input->post('password',true);
-			$user=$this->manager_model->login($username,$password);
-			if(!$user){
-				$data['error']=1;
-			} else{
-				$this->session->set_userdata('managerID',$user['managerID']);
-				redirect(base_url().'main');
-			}
-		}
+	
 
-		$this->load->view('navbar');
-		$this->load->view('header');
-		$this->load->view('user/login_user',$data);
-		$this->load->view('footer');
-		$this->load->helper('form');
-		
-	}
-
-	function logout(){
-		$this->session->sess_destroy();
-		redirect(base_url().'main');
-	}
-
-	function register(){
+	function Man_register(){
 		if($_POST){
 
 			$config=array(
+
+				/*  restuarent Info*/
+				array(
+						'field'=>'resname',
+						'label'=>'Restaurant Name',
+						'rules'=>'trim|required|min_length[3]'
+					),
+				array(
+						'field'=>'resaddress',
+						'label'=>'Address',
+						'rules'=>'trim|required|min_length[3]'
+					),
+					array(
+						'field'=>'resemail',
+						'label'=>'Restaurant Email',
+						'rules'=>'trim|required|min_length[3]'
+					),
+					array(
+						'field'=>'resnumber',
+						'label'=>'Contact Number of the Restaurent',
+						'rules'=>'trim|required|min_length[3]'
+					),
+				array(
+						'field'=>'zip',
+						'label'=>'Zip or Postal code',
+						'rules'=>'trim|required|min_length[3]'
+					),
+				array(
+						'field'=>'city',
+						'label'=>'City',
+						'rules'=>'trim|required|min_length[3]'
+					),
+				array(
+						'field'=>'state',
+						'label'=>'State or Province',
+						'rules'=>'trim|required|min_length[3]'
+					),
+
+				/*array(
+						'field'=>'email',
+						'label'=>'Email',
+						'rules'=>'trim|required|is_unique[tbl_user.email]valid_email'
+						),*/
+				
+					/*manager Info*/
 				array(
 						'field'=>'firstname',
-						'label'=>'Firstname',
+						'label'=>'First Name',
 						'rules'=>'trim|required|min_length[3]'
 					),
 				array(
 						'field'=>'lastname',
-						'label'=>'Lastname',
-						'rules'=>'trim|required|min_length[3]'
-					),
-					array(
-						'field'=>'restaurantname',
-						'label'=>'restaurantname',
-						'rules'=>'trim|required|min_length[3]'
-					),
-					array(
-						'field'=>'location',
-						'label'=>'location',
+						'label'=>'Last Name',
 						'rules'=>'trim|required|min_length[3]'
 					),
 				array(
 						'field'=>'username',
 						'label'=>'Username',
-						'rules'=>'trim|required|min_length[3]|is_unique[tbl_user.username]'
+						'rules'=>'trim|required|min_length[3]|is_unique[tbl_pass.username]'
 					),
 				array(
 						'field'=>'address',
 						'label'=>'Address',
+						'rules'=>'trim|required|min_length[3]'
+					),
+				array(
+						'field'=>'contactnumber',
+						'label'=>'Contact Number',
 						'rules'=>'trim|required|min_length[3]'
 					),
 				array(
@@ -74,8 +88,9 @@ class Manager extends CI_Controller {
 				array(
 						'field'=>'email',
 						'label'=>'Email',
-						'rules'=>'trim|required|is_unique[tbl_user.email]valid_email'
+						'rules'=>'trim|required|is_unique[tbl_manager.email]valid_email'
 					)
+
 
 				);
 
@@ -85,23 +100,33 @@ class Manager extends CI_Controller {
 				$data['errors']=validation_errors();
 			} else{
 
-			$data=array(
+			$data1=array(
+				'Res_Name'=>$_POST['resname'],
+				'Res_Address'=>$_POST['resaddress'],
+				'Res_Email'=>$_POST['resemail'],
+				'Res_Contact'=>$_POST['resnumber'],
+				'Zip'=>$_POST['zip'],
+				'City'=>$_POST['city'],
+				'State'=>$_POST['state'],
+
 				'firstname'=>$_POST['firstname'],
 				'lastname'=>$_POST['lastname'],
-				'lastname'=>$_POST['lastname'],
-				'restaurantname'=>$_POST['restaurantname'],
-				'location'=>$_POST['location'],
-				'username'=>$_POST['username'],
+				//'username'=>$_POST['username'],
 				'address'=>$_POST['address'],
 				'email'=>$_POST['email'],
-				'password'=>sha1($_POST['password']),
+				'contactnumber'=>$_POST['contactnumber'],
+				//'password'=>md5($_POST['password']),	
+				);
 
-					
+				$data2=array(
+				'username'=>$_POST['username'],
+				'password'=>md5($_POST['password']),
+
 				);
 
 
 			$this->load->model('manager_model');
-			$userid=$this->manager_model->create_user($data);
+			$userid=$this->manager_model->create_user($data1,$data2);
 			$this->session->set_userdata('managerID',$userid);
 			redirect(base_url().'main');
 			}
@@ -109,11 +134,25 @@ class Manager extends CI_Controller {
 		$this->load->view('navbar');
 		$this->load->helper('form');
 		//$this->load->view('header');
-		$this->load->view('user/register_manager');
+		$this->load->view('user/register_restaurant');
 		$this->load->view('footer');
 		
 
 	}
 
-
+	function view_restaurants()
+	{
+		$this->load->view('navbar');
+		$this->load->view('header');
+		//$this->load->view('restaurants',$data);
+		$this->load->view('footer');
+		//$this->load->database();  
+         //load the model 
+		$this->load->model('manager_model'); 		 
+        $data['restaurants']=$this->manager_model->view_restaurants();  
+         //load the method of model  
+        // $data['rest']=$this->select->select();  
+         //return the data in view  
+         $this->load->view('restaurants', $data);  
+	}
 }
